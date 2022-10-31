@@ -4,13 +4,7 @@
 
 
 def main():
-## main function for the program
-    
-    board = { '1': ' ', '2':' ', '3':' ','4':' ','5':' ','6':' ','7':' ','8':' ','9':' '}
-    board_keys = []
-
-    for key in board:
-        board_keys.append(key)
+## main function for the program   
 
     ## Introducing the rules of the game and the players
     print("\n")
@@ -26,6 +20,12 @@ def main():
     print("7"+'|' + "8" + '|' + "9")
     print("Ready to play?")
     print("\n")
+    
+    board = { '1': ' ', '2':' ', '3':' ','4':' ','5':' ','6':' ','7':' ','8':' ','9':' '}
+    board_keys = []
+
+    for key in board:
+        board_keys.append(key)
 
     def printBoard(board):
         ## Establishing the Tic Tac Toe board
