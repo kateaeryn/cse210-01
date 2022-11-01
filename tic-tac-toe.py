@@ -2,31 +2,32 @@
 
 ##The program must have at least one while loop.
 
-
 def main():
 ## main function for the program   
 
-    ## Introducing the rules of the game and the players
-    print("\n")
-    print("Hello and welcome to the game Tic Tac Toe!")
-    print("The first player will be X's and second player will be O's.")
-    print("Winning the game is accomplished by getting three of your tokens in a row, either vertical, horizontal or diagonal.")
-    print("\n")
-    print("Here is the board layout: ")
-    print("1" + '|' +"2" + '|' + "3")
-    print('-+-+-')
-    print("4" + '|'+"5"+'|'+"6")
-    print('-+-+-')
-    print("7"+'|' + "8" + '|' + "9")
-    print("Ready to play?")
-    print("\n")
+    def intro():
+        ## Introducing the rules of the game and the players
+        print("\n")
+        print("Hello and welcome to the game Tic Tac Toe!")
+        print("The first player will be X's and second player will be O's.")
+        print("Winning the game is accomplished by getting three of your tokens in a row, either vertical, horizontal or diagonal.")
+        print("\n")
+        print("Here is the board layout: ")
+        print("1" + '|' +"2" + '|' + "3")
+        print('-+-+-')
+        print("4" + '|'+"5"+'|'+"6")
+        print('-+-+-')
+        print("7"+'|' + "8" + '|' + "9")
+        print("Ready to play?")
+        print("\n")
+    intro()
     
     board = { '1': ' ', '2':' ', '3':' ','4':' ','5':' ','6':' ','7':' ','8':' ','9':' '}
     board_keys = []
 
     for key in board:
         board_keys.append(key)
-
+        
     def printBoard(board):
         ## Establishing the Tic Tac Toe board
        
@@ -35,6 +36,7 @@ def main():
         print(board['4']+ '|'+board['5']+'|'+board['6'])
         print('-+-+-')
         print(board['7']+'|'+ board['8']+ '|'+ board['9'])
+    
 
     def playGame():
         ## Function for actual game play
@@ -53,8 +55,8 @@ def main():
             else:
                 print("That place is filled.\nWhat is your next choice?")
                 continue
-            
-            if count >= 9:
+
+            if count >= 5:
                 if board['7'] == board['8'] == board['9'] != ' ': 
                     printBoard(board)
                     print("Game Over!")
@@ -102,7 +104,16 @@ def main():
                 turn = "O"
             else:
                 turn = "X"
-    playGame()      
-
+    playGame()     
+    
+    while True:
+        answer = input("Would you like to play again?(y/n)")
+        if answer == 'y' or answer == 'Y':
+            intro()
+            printBoard(board)
+            playGame()
+        elif answer == 'n' or answer == 'N':
+            print("Thank you for playing!")
+            break
 
 main()
